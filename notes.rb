@@ -7,6 +7,9 @@ User
 Game
   has_and_belongs_to_many :users
   has_many :characters
+  has_many :attributes
+  has_many :skills
+  has_many :talents
 
   id | name | description | gm_id
 
