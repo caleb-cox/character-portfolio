@@ -4,7 +4,6 @@ class CreateSkills < ActiveRecord::Migration[5.0]
       t.string :name
       t.string :attribute
       t.string :description
-      t.integer :game_id
 
       t.timestamps
     end

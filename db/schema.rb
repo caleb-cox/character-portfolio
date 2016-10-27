@@ -43,7 +43,6 @@ ActiveRecord::Schema.define(version: 20161027192501) do
     t.string   "name"
     t.string   "attribute"
     t.string   "description"
-    t.integer  "game_id"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
   end
@@ -51,7 +50,6 @@ ActiveRecord::Schema.define(version: 20161027192501) do
   create_table "talents", force: :cascade do |t|
     t.string   "name"
     t.string   "description"
-    t.integer  "game_id"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
   end

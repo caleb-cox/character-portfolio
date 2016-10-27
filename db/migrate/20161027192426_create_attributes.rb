@@ -3,7 +3,7 @@ class CreateAttributes < ActiveRecord::Migration[5.0]
     create_table :attributes do |t|
       t.string :name
       t.integer :value
-      t.integer :game_id
+      t.integer :character_id
 
       t.timestamps
     end
