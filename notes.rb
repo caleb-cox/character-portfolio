@@ -1,21 +1,43 @@
-game.attributes
-=> ["commando", "hacker", "witch"]
-
-character belongs_to game
-character.attributes
-=> {"commando" => 5, "hacker" => 2, "witch" => 3}
-=> {game.attributes[0] => 5, game.attributes[1] => 2, game.attributes[2] => 3}
-
-character.attributes[:commando]
-
 User
+  has_and_belongs_to_many :games
   has_many :characters
-  has_many :games, through: :characters
+
+  id | name | password_digest
+
+Game
+  has_and_belongs_to_many :user_games
+  has_many :characters
+  # belongs_to :user, :foreign_key => 'gm_id'
+
+  id | name | description | gm_id
 
 Character
   belongs_to :user
   belongs_to :game
 
-Game
-  has_many :characters
-  has_many :users, through: :characters
+  id | name | user_id | game_id
+
+
+
+
+
+
+
+
+# Attribute
+#   belongs_to :character
+
+#   id | name | value | character_id
+
+# AttributeName
+#   belongs_to :game
+
+#   id | name | game_id
+
+# Talent
+#   belongs_to :game
+#   has_and_belongs_to_many :characters
+
+#   id | name | description | game_id
+
+
