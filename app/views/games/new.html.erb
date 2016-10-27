@@ -1,5 +1,9 @@
-<%= form_tag games_path do %>
-  <%= label :name %><%= f.text_field :name %><br>
+Make a new game ya big nerd
+
+<%= form_for @game do |f| %>
+  <%= f.label :name %><%= f.text_field :name %><br>
+
   <%= f.label :description %><%= f.text_area :description %><br>
+
   <%= f.submit %>
 <% end %>

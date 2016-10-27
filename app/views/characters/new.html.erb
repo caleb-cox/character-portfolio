@@ -1,0 +1,13 @@
+Create a character for this game
+
+<%= form_for @character do |f| %>
+  <%= f.label :name %> <%= f.text_field :name %><br>
+
+  <%= f.label :commando %> <%= f.text_field :commando %><br>
+
+  <%= f.label :hacker %> <%= f.text_field :hacker %><br>
+
+  <%= f.label :witch %> <%= f.text_field :witch %><br>
+
+  <%= f.submit %>
+<% end %>

@@ -15,16 +15,11 @@ ActiveRecord::Schema.define(version: 20161027192501) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "attributes", force: :cascade do |t|
-    t.string   "name"
-    t.integer  "value"
-    t.integer  "character_id"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
-  end
-
   create_table "characters", force: :cascade do |t|
     t.string   "name"
+    t.integer  "commando"
+    t.integer  "hacker"
+    t.integer  "witch"
     t.integer  "user_id"
     t.integer  "game_id"
     t.datetime "created_at", null: false
@@ -41,10 +36,10 @@ ActiveRecord::Schema.define(version: 20161027192501) do
 
   create_table "skills", force: :cascade do |t|
     t.string   "name"
-    t.string   "attribute"
+    t.string   "character_attribute"
     t.string   "description"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",          null: false
+    t.datetime "updated_at",          null: false
   end
 
   create_table "talents", force: :cascade do |t|
