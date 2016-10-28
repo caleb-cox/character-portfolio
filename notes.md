@@ -1,0 +1,10 @@
+- template
+  - navbar ::Drew
+- styling
+  - Get bootstrap loaded ::Drew
+- finish controllers/ associated views
+  - games ::Drew
+  - users ::Jess
+  - characters ::Caleb
+- analytics ::Jess
+- rspecs ::Caleb

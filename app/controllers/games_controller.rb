@@ -28,7 +28,7 @@ class GamesController < ApplicationController
     session[:game_id] = @game.id
     @user = User.find(session[:user_id])
     @can_edit = @game.gm_id == @user.id
-    byebug
+
     # @in_game = if user already has a character in the game
   end
 

@@ -13,7 +13,7 @@ class SessionsController < ApplicationController
       redirect_to user_path(@user)
     else
       flash.alert = "You dun fucked up, try again"
-      render 'users#show'
+      render :new
     end
   end
 
