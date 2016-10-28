@@ -15,6 +15,9 @@ skip_before_action :require_login, only: [:new, :create]
   end
 
   def show
+    byebug
+    @user = User.find(params[:id])
+    @games = @user.games
   end
 
   def edit
