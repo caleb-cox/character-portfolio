@@ -1,1 +1,11 @@
-YO, you here. Dis yo profile
+<h1>Welcome to The Shire <%= @user.name %>!</h1>
+
+
+<h2>Choose An Adventure</h2>
+<% @games.each do |game| %>
+  <%= game.name %><br>
+  <%= game.description %><br>
+<% end %>
+
+<h2>Make An Adventure</h2>
+  new_game_path

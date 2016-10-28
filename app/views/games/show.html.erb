@@ -2,10 +2,17 @@
 
 <h3><%= @game.description %></h3>
 
+<% if @can_edit%>
+<div>
+  <%= link_to "Edit This Game", edit_game_path(@game) %>
+</div>
+<% else %>
+<%= link_to "Join Game & Create a Character", new_character_path %>
+<% end %>
+
 <h4>Characters in this game</h4>
 <ul>
   <%= @game.characters.each do |character| %>
   <li><%= link_to character.name character_path(character)%></li>
   <% end %>
-  <li>This worked</li>
 </ul>

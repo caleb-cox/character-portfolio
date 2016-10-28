@@ -1,5 +1,11 @@
 Make a new game ya big nerd
 
+<% if flash[:alert] %>
+  <div>
+    <%= flash[:alert] %>
+  </div>
+<% end %>
+
 <%= form_for @game do |f| %>
   <%= f.label :name %><%= f.text_field :name %><br>
 

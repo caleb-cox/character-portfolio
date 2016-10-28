@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-
+  root to: 'greetings#hello'
   resources :characters, except: [:index]
   resources :games
   resources :character_attributes, only:[:new, :create]
