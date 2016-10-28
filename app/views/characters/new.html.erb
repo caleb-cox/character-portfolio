@@ -1,11 +1,11 @@
 Create a character for this game
 
 <%= form_tag characters_path do %>
-  <%= label_tag :character[:name] %> <%= text_field_tag :character[:name] %><br>
-  <%= label_tag :character[:commando] %> <%= text_field_tag :character[:commando] %><br>
-  <%= label_tag :character[:hacker] %> <%= text_field_tag :character[:hacker] %><br>
-  <%= label_tag :character[:witch] %> <%= text_field_tag :character[:witch] %><br>
+  <%= label_tag "character[name]" %> <%= text_field_tag "character[name]" %><br>
+  <%= label_tag "character[commando]" %> <%= text_field_tag "character[commando]" %><br>
+  <%= label_tag "character[hacker]" %> <%= text_field_tag "character[hacker]" %><br>
+  <%= label_tag "character[witch]" %> <%= text_field_tag "character[witch]" %><br>
 
 
-  <%= f.submit %>
+  <%= submit_tag %>
 <% end %>
