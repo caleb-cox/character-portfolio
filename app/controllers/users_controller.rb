@@ -6,7 +6,7 @@ class UsersController < ApplicationController
   def create
   end
 
-  def show
+  def show 
   end
 
   def edit

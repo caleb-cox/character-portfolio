@@ -7,9 +7,12 @@ class CharactersController < ApplicationController
 
     @character = Character.new(character_params)
     @character.user_id = session[:user_id]
-  
+
     if @character.save
       redirect_to @character
+    else
+      byebug
+      render :new
     end
   end
 
