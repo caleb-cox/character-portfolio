@@ -4,7 +4,6 @@ class CharactersController < ApplicationController
   end
 
   def create
-
     @character = Character.new(character_params)
     @character.user_id = session[:user_id]
 
