@@ -1,8 +1,16 @@
 YOU MADE ME THIS WAY!
-
+Name: <%= @character.name %><br>
 Commando: <%= @character.commando %> <br>
 Hacker: <%= @character.hacker %> <br>
 Witch: <%= @character.witch %> <br>
 Health: <%= @character.health %> <br>
 Mana: <%= @character.mana %> <br>
 Luck: <%= @character.luck %> <br>
+Skills:<br>
+<% @character.skills.each do |skill| %>
+<%= skill.to_s %><br>
+<% end %>
+Talents:<br>
+<% @character.talents.each do |talent| %>
+<%= talent.to_s %><br>
+<% end %>

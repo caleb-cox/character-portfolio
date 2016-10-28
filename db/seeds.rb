@@ -32,7 +32,7 @@ talents = [
   ['Critical Hit', 'You can add your Commando attribute level to your weapon attack damage once per combat.'],
   ['Crony', 'You are followed by a henchman, who carries your crap and picks up your dry cleaning.'],
   ['Dual-wielding', 'You may wield a weapon in your off-hand without penalty. Does not grant an extra attack.'],
-  ['Elite Gear', 'Select a piece of expensive, high-quality equipment. You get a +2 bonus on rolls that use that equipment. May be taken ],m[ore than once.'],
+  ['Elite Gear', 'Select a piece of expensive, high-quality equipment. You get a +2 bonus on rolls that use that equipment. May be taken more than once.'],
   ['Familiar', 'You have a small animal like a cat or pigeon as a pet that can do some simple tricks.'],
   ['Hack the Planet', 'Once per day, treat a Software roll as a 6, following the "exploding dice" rule.'],
   ['MacGuyver', 'Once per day, you may jury rig a handy device out of junk objects.'],
@@ -44,3 +44,4 @@ talents = [
 ]
 skills.each { |skill| Skill.create(name: skill[0], character_attribute: skill[1], description: skill[2])}
 talents.each { |talent| Talent.create(name: talent[0], description: talent[1])}
+Game.create(name: "Test Game", description: "What up")

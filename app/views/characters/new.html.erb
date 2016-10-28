@@ -1,11 +1,31 @@
-Create a character for this game
+<h1>Create a character for this game</h1>
+
+<% if @character.errors.any? %>
+  <% @character.errors.full_messages.each do |message| %>
+    <%= message %><br>
+  <% end %>
+  <br>
+<% end %>
 
 <%= form_tag characters_path do %>
-  <%= label_tag "character[name]" %> <%= text_field_tag "character[name]" %><br>
-  <%= label_tag "character[commando]" %> <%= text_field_tag "character[commando]" %><br>
-  <%= label_tag "character[hacker]" %> <%= text_field_tag "character[hacker]" %><br>
-  <%= label_tag "character[witch]" %> <%= text_field_tag "character[witch]" %><br>
-
-
+  <%= label_tag 'character[name]', 'Name:' %>
+    <%= text_field_tag 'character[name]', @character.name %><br>
+  <h3>Attributes:</h3>
+  <%= label_tag 'character[commando]', 'Commando:' %>
+    <%= text_field_tag 'character[commando]', @character.commando %><br>
+  <%= label_tag 'character[hacker]', 'Hacker:' %>
+    <%= text_field_tag 'character[hacker]', @character.hacker %><br>
+  <%= label_tag 'character[witch]', 'Witch:' %>
+    <%= text_field_tag 'character[witch]', @character.witch %><br>
+  <h3>Skills:</h3>
+  <%= label_tag 'character[skill_1]', 'Skill 1:' %>
+    <%= select_tag 'character[skill_1]', options_from_collection_for_select(@skills, "id", "to_s") %><br>
+  <%= label_tag 'character[skill_2]', 'Skill 2:' %>
+    <%= select_tag 'character[skill_2]', options_from_collection_for_select(@skills, "id", "to_s") %><br>
+  <%= label_tag 'character[skill_3]', 'Skill 3:' %>
+    <%= select_tag 'character[skill_3]', options_from_collection_for_select(@skills, "id", "to_s") %><br>
+  <h3>Talent:</h3>
+  <%= select_tag 'character[talent]', options_from_collection_for_select(@talents, "id", "to_s") %><br>
+  <br>
   <%= submit_tag %>
 <% end %>
