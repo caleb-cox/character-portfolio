@@ -1,0 +1,7 @@
+ALL THE GAMEZZ!
+
+<ul>
+<%= @games.each do |game| %>
+  <li><%= link_to game.name game_path %></li> 
+<% end %>
+</ul>

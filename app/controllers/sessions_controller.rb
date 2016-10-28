@@ -6,12 +6,20 @@ class SessionsController < ApplicationController
   end
 
   def create
-    byebug
-    user = User.find(session[:user_id])
-    redirect_to :show
+    user = User.find_by(name: params[:user][:name])
+
+    if user && user.authenticate(params[:user][:password])
+      session[:user_id] = user.id
+      redirect_to :show, notice: "You are logged in!"
+    else
+      flash.alert = "You dun fucked up, try again"
+      render 'users#show'
+    end
   end
 
-  def show
+  private
 
+  def sessions_params
+    params.require(:user).permit(:name, :password)
   end
 end

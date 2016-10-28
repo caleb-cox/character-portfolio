@@ -23,6 +23,6 @@ class Character < ApplicationRecord
   end
 
   def attributes_total
-    self.commando + self.hacker + self.witch
+    self.commando + self.hacker + self.witch 
   end
 end

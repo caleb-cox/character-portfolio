@@ -1,8 +1,14 @@
-Sign-Up to b a big ol nerd!
+Login ya big ol nerd!
+
+<% if flash[:alert] %>
+  <div class="notice">
+    <%= flash[:alert] %>
+  </div>
+<% end %>
 
 
 <%= form_tag ('/sessions') do %>
-  <%= label_tag "name" %><%= text_field_tag '[user][name]' %> <br>
-  <%= label_tag "password" %><%= text_field_tag '[user][password]' %> <br>
-  <%= submit_tag "Create New Uzer" %>
+  <%= label_tag "Username" %><%= text_field_tag '[user][name]' %> <br>
+  <%= label_tag "password" %><%= password_field_tag '[user][password]' %> <br>
+  <%= submit_tag "Login" %>
 <% end %>
