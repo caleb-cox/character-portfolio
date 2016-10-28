@@ -11,6 +11,9 @@ class GamesController < ApplicationController
   def create
     @game = Game.new(game_params)
     @game.gm_id = session[:user_id]
+    @user = User.find(session[:user_id])
+
+    @user.games << @game
 
     if @game.save
       redirect_to @game
@@ -25,6 +28,7 @@ class GamesController < ApplicationController
     session[:game_id] = @game.id
     @user = User.find(session[:user_id])
     @can_edit = @game.gm_id == @user.id
+    byebug
     # @in_game = if user already has a character in the game
   end
 
