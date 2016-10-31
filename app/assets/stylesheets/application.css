@@ -1,3 +1,7 @@
+body {
+  background-image: url(http://subtlepatterns2015.subtlepatterns.netdna-cdn.com/patterns/escheresque.png);
+}
+
 .errors {
   background-color: yellow;
   color: red;
