@@ -1,0 +1,25 @@
+<h1>Your characters</h1>
+
+<table id="charlist">
+<tr>
+  <th>
+    Game
+  </th>
+  <th>
+    Character
+  </th>
+</tr>
+<% @characters.each do |character| %>
+  <tr>
+    <td>
+      <%= link_to character.game.name, character.game %>
+    </td>
+    <td>
+      <%= link_to character.name, character %>
+    </td>
+  </tr>
+<% end %>
+</table>
+
+<h2>Your character attributes</h2>
+<%= column_chart @attribute_sums %>

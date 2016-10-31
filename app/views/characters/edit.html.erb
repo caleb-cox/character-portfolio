@@ -7,7 +7,7 @@
   <br>
 <% end %>
 
-<%= form_tag characters_path do %>
+<%= form_tag character_path(@character), method: :put do %>
   <%= label_tag 'character[name]', 'Name:' %>
     <%= text_field_tag 'character[name]', @character.name %><br>
   <h3>Attributes:</h3>
