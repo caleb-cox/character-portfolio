@@ -17,7 +17,7 @@ class CharactersController < ApplicationController
   end
 
   def create
-  
+
     @character = Character.new(character_params)
     @character.user_id = session[:user_id]
     @character.game = Game.find(session[:game_id])
@@ -39,6 +39,10 @@ class CharactersController < ApplicationController
 
   def show
     @character = Character.find(params[:id])
+
+    if @character.talent == familiar
+      @familiar = .search(num)
+    end
   end
 
   def edit
