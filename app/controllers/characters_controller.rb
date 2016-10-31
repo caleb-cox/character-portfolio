@@ -1,4 +1,8 @@
 class CharactersController < ApplicationController
+  def index
+    @characters = Character.where(user_id: session[:user_id])
+  end
+
   def new
     @character = Character.new
     @skills = Skill.all
