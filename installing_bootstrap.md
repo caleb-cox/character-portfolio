@@ -1,7 +1,7 @@
 1. Download bootstrap
   - http://getbootstrap.com/getting-started/#download
 
-2. Move bootstrap/css/bootstrap.css to app/assests/stylesheets
+2. Move bootstrap/css/bootstrap.css to app/assets/stylesheets
 
 3. Move bootstrap/js/bootstrap.css to app/assets/javascripts
 
@@ -38,5 +38,5 @@ General setup & use
       <p>The entire page</p>
     </div>
   </div> <!-- end .row -->
-  
+
 </div> <!--end .container-fluid-->

@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   resources :characters, except: [:index]
   resources :games
   resources :character_attributes, only:[:new, :create]
-  resources :users, only: [:show, :edit, :update]
+  resources :users, only: [:show, :edit, :update, :create]
   get '/users' => 'users#destroy', as: 'delete'
   get '/signup' => 'users#new', as: 'signup'
   get '/login' => 'sessions#new', as: 'login'

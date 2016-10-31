@@ -33,7 +33,7 @@ class GamesController < ApplicationController
         @user_character = character
       end
     end
-    byebug
+
   end
 
   def edit

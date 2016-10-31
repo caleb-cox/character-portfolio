@@ -8,8 +8,8 @@ skip_before_action :require_login, only: [:new, :create]
   def create
     @user = User.new(user_params)
     if @user.save
-
-      redirect_to login_path
+      session[:user_id] = @user.id
+      redirect_to @user
     else
       render :new
     end
@@ -17,10 +17,11 @@ skip_before_action :require_login, only: [:new, :create]
 
   def show
     @user = User.find(params[:id])
-    @games = GamesUsers.find_by_sql(select * where user_id == @user.id)
-    @chart_info = @games.map do |game|
-      [game.name, game.description]
-    end
+    @games = @user.games
+    # @games = GamesUsers.find_by_sql(select * where user_id == @user.id)
+    # @chart_info = @games.map do |game|
+    #   [game.name, game.description]
+    # end
   end
 
   def edit
@@ -39,6 +40,7 @@ skip_before_action :require_login, only: [:new, :create]
   def destroy
     @user = User.find(session[:user_id])
     @user.destroy
+    session[:user_id] = nil
     redirect_to root_path
   end
 
