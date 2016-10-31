@@ -19,13 +19,13 @@
     <%= text_field_tag 'character[witch]', @character.witch %><br>
   <h3>Skills:</h3>
   <%= label_tag 'character[skill_1]', 'Skill 1:' %>
-    <%= select_tag 'character[skill_1]', options_from_collection_for_select(@skills, "id", "to_s") %><br>
+    <%= select_tag 'character[skill_1]', options_from_collection_for_select(@skills, "id", "to_s", @character.skills[0].id) %><br>
   <%= label_tag 'character[skill_2]', 'Skill 2:' %>
-    <%= select_tag 'character[skill_2]', options_from_collection_for_select(@skills, "id", "to_s") %><br>
+    <%= select_tag 'character[skill_2]', options_from_collection_for_select(@skills, "id", "to_s", @character.skills[1].id) %><br>
   <%= label_tag 'character[skill_3]', 'Skill 3:' %>
-    <%= select_tag 'character[skill_3]', options_from_collection_for_select(@skills, "id", "to_s") %><br>
+    <%= select_tag 'character[skill_3]', options_from_collection_for_select(@skills, "id", "to_s", @character.skills[2].id) %><br>
   <h3>Talent:</h3>
-  <%= select_tag 'character[talent]', options_from_collection_for_select(@talents, "id", "to_s") %><br>
+  <%= select_tag 'character[talent]', options_from_collection_for_select(@talents, "id", "to_s", @character.talents[0].id) %><br>
   <br>
   <%= submit_tag %>
 <% end %>
