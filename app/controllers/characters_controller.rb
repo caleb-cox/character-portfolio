@@ -17,14 +17,13 @@ class CharactersController < ApplicationController
   end
 
   def create
+  
     @character = Character.new(character_params)
     @character.user_id = session[:user_id]
     @character.game = Game.find(session[:game_id])
 
-    @character.skills.clear
-    @character.skills << Skill.find(params[:character][:skill_1])
-    @character.skills << Skill.find(params[:character][:skill_2])
-    @character.skills << Skill.find(params[:character][:skill_3])
+    x = SkillsAssigner.new(@character, params[:character][:skills])
+    x.assign
 
     @character.talents.clear
     @character.talents << Talent.find(params[:character][:talent])
@@ -60,10 +59,8 @@ class CharactersController < ApplicationController
     @character.hacker = params[:character][:hacker]
     @character.witch = params[:character][:witch]
 
-    @character.skills.clear
-    @character.skills << Skill.find(params[:character][:skill_1])
-    @character.skills << Skill.find(params[:character][:skill_2])
-    @character.skills << Skill.find(params[:character][:skill_3])
+    x = SkillsAssigner.new(@character, params[:character][:skills])
+    x.assign
 
     @character.talents.clear
     @character.talents << Talent.find(params[:character][:talent])
