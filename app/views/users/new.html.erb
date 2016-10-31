@@ -1,13 +1,24 @@
-<h1>Make an Account!</h1>
+<div class="row">
+  <div class="col-lg-6 text-center">
+    <h1>Make an Account!</h1>
+  </div>
+</div>
 
-<%= form_for @user do |f| %>
-<%= f.label :name %>
-<%= f.text_field :name %><br>
+<div class="row">
+  <div class="col-lg-6">
+    <% if @user.errors.any? %>
+    <%end%>
+    <%= form_for @user do |f| %>
+    <div class="form-group">
+    <%= f.label :name %>
+    <%= f.text_field :name %><br>
+  </div>
+  <div class="form-group">
+    <%= f.label :password %>
+    <%= f.password_field :password %><br>
+  </div>
+    <%= f.submit class:'btn btn-success'%><br><br>
+    <% end %>
+  </div>
+</div>
 
-<%= f.label :password %>
-<%= f.password_field :password %><br>
-<%= f.submit %><br><br>
-<% end %>
-
-
-<%= link_to('Sign Up', signup_path) %> | <%= link_to('Log In', login_path) %>
