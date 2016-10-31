@@ -2,6 +2,11 @@
   background-color: yellow;
   color: red;
 }
+
+table#charlist td, th {
+  padding-right: 24px;
+}
+
 /*
  * This is a manifest file that'll be compiled into application.css, which will include all the files
  * listed below.

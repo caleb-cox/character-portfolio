@@ -1,16 +1,52 @@
-YOU MADE ME THIS WAY!
-Name: <%= @character.name %><br>
-Commando: <%= @character.commando %> <br>
-Hacker: <%= @character.hacker %> <br>
-Witch: <%= @character.witch %> <br>
-Health: <%= @character.health %> <br>
-Mana: <%= @character.mana %> <br>
-Luck: <%= @character.luck %> <br>
-Skills:<br>
-<% @character.skills.each do |skill| %>
-<%= skill.to_s %><br>
-<% end %>
-Talents:<br>
-<% @character.talents.each do |talent| %>
-<%= talent.to_s %><br>
-<% end %>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-lg-2">
+      <p>
+        <b>Name:</b> <%= @character.name %>
+      </p>
+      <p>
+        <b>Commando:</b> <%= @character.commando %> <br>
+        <b>Hacker:</b> <%= @character.hacker %> <br>
+        <b>Witch:</b> <%= @character.witch %> <br>
+      </p>
+      <p>
+        <b>Health:</b> <%= @character.health %> <br>
+        <b>Mana:</b> <%= @character.mana %> <br>
+        <b>Luck:</b> <%= @character.luck %> <br>
+      </p>
+    </div>
+
+    <div class="col-lg-5">
+      <p>
+        <b>Skills:</b><br>
+        <% @character.skills.each do |skill| %>
+          <p>
+            <%= skill.to_s %>
+          </p>
+        <% end %>
+      </p>
+    </div>
+
+    <div class="col-lg-5">
+      <p>
+        <b>Talents:</b><br>
+        <% @character.talents.each do |talent| %>
+          <p>
+            <%= talent.to_s %>
+          </p>
+        <% end %>
+      </p>
+    </div>
+  </div>
+
+  <% if @character.user_id == session[:user_id] %>
+    <div class="row">
+      <div class="col-lg-2">
+        <%= link_to "Edit Character", edit_character_path(@character) %>
+      </div>
+      <div class="col-lg-2">
+        <%= link_to "Delete Character", character_path(@character), method: :delete %>
+      </div>
+    </div>
+  <% end %>
+</div>
