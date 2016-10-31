@@ -17,12 +17,12 @@
 
   <body>
     <div class="container-fluid">
-      <div class="row">
-        <div class="col-lg-3">
-          <h3>Character Portfolio</h3>
+      <div class="row  header-img">
+        <div class="col-lg-6">
+          <h1>Character Portfolio</h1>
         </div>
       </div>
-      <div class="row">
+      <div class="row  header-img">
         <ul class="nav nav-tabs">
           <% if session[:user_id] %>
             <li><%= link_to "Home", user_path(session[:user_id])  %></li>
