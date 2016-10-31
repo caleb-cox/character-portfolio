@@ -45,46 +45,66 @@ talents = [
 skills.each { |skill| Skill.create(name: skill[0], character_attribute: skill[1], description: skill[2])}
 talents.each { |talent| Talent.create(name: talent[0], description: talent[1])}
 
-5.times do
-  User.create(name: Faker::Book.author, password_digest: Faker::Internet.password)
+50.times do
+  User.create(name: Faker::Internet.user_name, password: Faker::Internet.password)
 end
 
-3.times do
-  Game.create(name: Faker::StarWars.planet, description: Faker::Hipster.sentence(5) , gm_id: 1)
+10.times do
+  Game.create(name: Faker::Book.title, description: Faker::Lorem.paragraph, gm_id: rand(1..User.count))
 end
 
-2.times do
-  Game.create(name: Faker::StarWars.planet, description: Faker::Hipster.sentence(5) , gm_id: 2)
+def new_player_character(game_id, gm_id)
+  new_pc = Character.new(name: Faker::Name.name)
+
+  attrs = character_attribute_array.shuffle
+  new_pc.commando = attrs[0]
+  new_pc.hacker = attrs[1]
+  new_pc.witch = attrs[2]
+
+  new_pc.user_id = gm_id
+  until new_pc.user_id != gm_id
+    new_pc.user_id = rand(1..User.count)
+  end
+
+  new_pc.game_id = game_id
+
+  skills = random_skills
+  new_pc.skills << Skill.find(skills[0])
+  new_pc.skills << Skill.find(skills[1])
+  new_pc.skills << Skill.find(skills[2])
+
+  new_pc.talents << Talent.find(rand(1..Talent.count))
+
+  new_pc.save
 end
 
-3.times do
-  n = 2
-  Character.create(name: Faker::Pokemon.name, commando:4, hacker:4, witch:2, user_id: n+1, game_id:1)
-  n += 1
+def character_attribute_array
+  attr_arrays = [
+    [0, 4, 6],
+    [0, 5, 5],
+    [1, 3, 6],
+    [1, 4, 5],
+    [2, 2, 6],
+    [2, 3, 5],
+    [2, 4, 4],
+    [3, 3, 4]
+  ]
+
+  attr_arrays[rand(0..7)]
 end
 
-3.times do
-  n = 2
-  g = 0
-  Character.create(name: Faker::Pokemon.name, commando:4, hacker:4, witch:2, user_id: n+1, game_id:2)
-  n += 1
-  g += 1
+def random_skills
+  skill_arr = []
+  until skill_arr.size == 3
+    skill_arr << rand(1..Skill.count)
+    skill_arr.uniq!
+  end
+  skill_arr
 end
 
-3.times do
-  n = 2
-  Character.create(name: Faker::Pokemon.name, commando:4, hacker:4, witch:2, user_id: n+1, game_id:3)
-  n += 1
-end
+Game.all.each do |game|
+  rand(1..10).times do
+    new_player_character(game.id, game.gm_id)
+  end
 
-3.times do
-  n = 2
-  Character.create(name: Faker::Pokemon.name, commando:4, hacker:4, witch:2, user_id: n+1, game_id:4)
-  n += 1
-end
-
-3.times do
-  n = 2
-  Character.create(name: Faker::Pokemon.name, commando:4, hacker:4, witch:2, user_id: n+1, game_id:5)
-  n += 1
 end
