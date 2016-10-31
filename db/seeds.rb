@@ -44,4 +44,47 @@ talents = [
 ]
 skills.each { |skill| Skill.create(name: skill[0], character_attribute: skill[1], description: skill[2])}
 talents.each { |talent| Talent.create(name: talent[0], description: talent[1])}
-Game.create(name: "Test Game", description: "What up")
+
+5.times do
+  User.create(name: Faker::Book.author, password_digest: Faker::Internet.password)
+end
+
+3.times do
+  Game.create(name: Faker::StarWars.planet, description: Faker::Hipster.sentence(5) , gm_id: 1)
+end
+
+2.times do
+  Game.create(name: Faker::StarWars.planet, description: Faker::Hipster.sentence(5) , gm_id: 2)
+end
+
+3.times do
+  n = 2
+  Character.create(name: Faker::Pokemon.name, commando:4, hacker:4, witch:2, user_id: n+1, game_id:1)
+  n += 1
+end
+
+3.times do
+  n = 2
+  g = 0
+  Character.create(name: Faker::Pokemon.name, commando:4, hacker:4, witch:2, user_id: n+1, game_id:2)
+  n += 1
+  g += 1
+end
+
+3.times do
+  n = 2
+  Character.create(name: Faker::Pokemon.name, commando:4, hacker:4, witch:2, user_id: n+1, game_id:3)
+  n += 1
+end
+
+3.times do
+  n = 2
+  Character.create(name: Faker::Pokemon.name, commando:4, hacker:4, witch:2, user_id: n+1, game_id:4)
+  n += 1
+end
+
+3.times do
+  n = 2
+  Character.create(name: Faker::Pokemon.name, commando:4, hacker:4, witch:2, user_id: n+1, game_id:5)
+  n += 1
+end

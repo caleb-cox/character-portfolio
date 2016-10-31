@@ -1,14 +1,35 @@
-Login ya big ol nerd!
-
-<% if flash[:alert] %>
-  <div class="notice">
-    <%= flash[:alert] %>
+<div class="row">
+  <div class="col-lg-2">
+    <h1>Log In</h1>
   </div>
-<% end %>
+</div>
 
+<div class="row">
+  <div class="col-lg-3">
+    <% if flash[:alert] %>
+      <div class="error">
+        <%= flash[:alert] %>
+        <%= link_to "Create new user", signup_path %>
+      </div>
+    <% elsif flash[:notice]%>
+      <div class=  "error">
+        <%= flash[:notice] %>
+        <%= link_to "Log Out - needs link", "#" %>
+      </div>
+    <% end %>
+  </div>
+</div>
 
-<%= form_tag ('/sessions') do %>
-  <%= label_tag "Username" %><%= text_field_tag '[user][name]' %> <br>
-  <%= label_tag "password" %><%= password_field_tag '[user][password]' %> <br>
-  <%= submit_tag "Login" %>
+<div class="row">
+  <div class="col-lg-6">
+    <%= form_tag ('/sessions') do %>
+      <div class="form-group">
+        <%= label_tag "Username: " %><%= text_field_tag '[user][name]' %> <br>
+      </div>
+      <div class="form-group">
+        <%= label_tag "Password: " %><%= password_field_tag '[user][password]' %> <br>
+      </div>
+      <%= submit_tag "Login" %>
+  </div>
+</div>
 <% end %>

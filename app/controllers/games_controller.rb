@@ -2,6 +2,7 @@ class GamesController < ApplicationController
 
   def index
     @games = Game.all
+    @character_count = Game.characters_per_game
   end
 
   def new
@@ -13,12 +14,10 @@ class GamesController < ApplicationController
     @game.gm_id = session[:user_id]
     @user = User.find(session[:user_id])
 
-    @user.games << @game
-
     if @game.save
+      @user.games << @game
       redirect_to @game
     else
-      flash.alert = "You dun fucked up, try again"
       render :new
     end
   end
@@ -29,7 +28,12 @@ class GamesController < ApplicationController
     @user = User.find(session[:user_id])
     @can_edit = @game.gm_id == @user.id
 
-    # @in_game = if user already has a character in the game
+    @user.characters.all.each do |character|
+      if character.game_id == session[:game_id]
+        @user_character = character
+      end
+    end
+    byebug
   end
 
   def edit
@@ -42,12 +46,13 @@ class GamesController < ApplicationController
     if @game.update(game_params)
       redirect_to @game
     else
-      flash.alert = "You dun fucked up, try again"
-      render :new
+      render :edit
     end
   end
 
   def destroy
+    @game = Game.find(params[:id])
+
   end
 
   private
