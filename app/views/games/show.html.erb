@@ -6,7 +6,7 @@
 <div>
   <h4>You are the Game Master</h4>
   <%= link_to "Edit This Game", edit_game_path(@game) %> ||
-  <%= link_to "Delete", delete_game_path %>
+  <%= link_to "Delete", confirm_delete_game_path %>
 </div>
 <% elsif @user_character %>
   <h4>Your Character in this game</h4>

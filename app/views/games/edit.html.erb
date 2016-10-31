@@ -1,7 +1,7 @@
 <h2>Edit Game</h2>
 
 <div class="row">
-  <div class="col-lg-2 col-lg-offset-1">
+  <div class="col-lg-3">
     <% if @game.errors.any? %>
       <% @game.errors.full_messages.each do |message| %>
       <div class=  "errors">
@@ -15,17 +15,17 @@
 <br>
 
 <div class="row">
-  <div class="col-lg-6 col-lg-offset-1">
+  <div class="col-lg-3">
     <%= form_for @game do |f| %>
       <div class="form-group">
         <%= f.label :name %><br><%= f.text_field :name %>
       </div>
 
       <div class="form-group">
-        <%= f.label :description %><br><%= f.text_area :description %>
+        <%= f.label :description %><br><%= f.text_area :description, size: "60x5"  %>
       </div>
 
-      <%= f.submit %>
+      <%= f.submit class: 'btn btn-success'%>
     <% end %>
   </div>
 </div>

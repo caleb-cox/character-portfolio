@@ -1,5 +1,5 @@
 <div class="row">
-  <div class="col-lg-6 text-center">
+  <div class="col-lg-4">
     <h1>Make an Account!</h1>
   </div>
 </div>
@@ -10,11 +10,11 @@
     <%end%>
     <%= form_for @user do |f| %>
     <div class="form-group">
-    <%= f.label :name %>
+    <%= f.label "Username: " %>
     <%= f.text_field :name %><br>
   </div>
   <div class="form-group">
-    <%= f.label :password %>
+    <%= f.label "Password: " %>
     <%= f.password_field :password %><br>
   </div>
     <%= f.submit class:'btn btn-success'%><br><br>

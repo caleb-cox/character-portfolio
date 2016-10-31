@@ -3,9 +3,8 @@ Rails.application.routes.draw do
   
   resources :characters
 
-  resources :games, except: [:destroy]
-  post '/games/:id/delete' => 'games#destroy', as: 'delete_game'
-  get '/games/:id/delete' => 'games#destroy'
+  resources :games
+  get '/games/:id/confirm_delete' => 'games#confirm_delete', as: 'confirm_delete_game'
 
   resources :users, only: [:show, :edit, :update, :create]
   get '/users' => 'users#destroy', as: 'delete'

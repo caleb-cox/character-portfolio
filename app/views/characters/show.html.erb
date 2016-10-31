@@ -1,9 +1,14 @@
 <div class="container-fluid">
   <div class="row">
+    <div class="col-lg-12">
+      <h2>
+        <%= @character.name %>
+      </h2>
+    </div>
+  </div>
+  <div class="row">
     <div class="col-lg-2">
-      <p>
-        <b>Name:</b> <%= @character.name %>
-      </p>
+      <h4>Attributes:</h4>
       <p>
         <b>Commando:</b> <%= @character.commando %> <br>
         <b>Hacker:</b> <%= @character.hacker %> <br>
@@ -16,37 +21,40 @@
       </p>
     </div>
 
-    <div class="col-lg-5">
+    <div class="col-lg-4">
+      <h4>Skills:</h4>
       <p>
-        <b>Skills:</b><br>
         <% @character.skills.each do |skill| %>
           <p>
-            <%= skill.to_s %>
+            <b><%= skill.name %></b> (<%= skill.character_attribute %>)<br><%= skill.description %>
           </p>
         <% end %>
       </p>
     </div>
 
-    <div class="col-lg-5">
+    <div class="col-lg-4">
+      <h4>Talents:</h4>
       <p>
-        <b>Talents:</b><br>
         <% @character.talents.each do |talent| %>
           <p>
-            <%= talent.to_s %>
+            <b><%= talent.name %></b><br><%= talent.description %>
           </p>
         <% end %>
       </p>
     </div>
-  </div>
 
-  <% if @character.user_id == session[:user_id] %>
-    <div class="row">
-      <div class="col-lg-2">
-        <%= link_to "Edit Character", edit_character_path(@character) %>
+  </div>
+  <div class="row">
+    <% if @character.user_id == session[:user_id] %>
+      <div class="col-lg-6">
       </div>
       <div class="col-lg-2">
-        <%= link_to "Delete Character", character_path(@character), method: :delete %>
+        <%= link_to "Edit Character", edit_character_path(@character), class: 'btn btn-success' %>
       </div>
-    </div>
-  <% end %>
+      <div class="col-lg-4">
+        <%= link_to "Delete Character", character_path(@character), method: :delete, class: 'btn btn-danger' %>
+      </div>
+    <% end %>
+
+  </div>
 </div>
