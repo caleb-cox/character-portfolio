@@ -24,4 +24,6 @@
   <% end %>
 </ul>
 
-<%= pie_chart @game.char_attr_per_game %>
+<h4>Average Attributes</h4>
+
+<%= column_chart (@chart_info) %>

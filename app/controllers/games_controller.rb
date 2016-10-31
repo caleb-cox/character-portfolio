@@ -34,6 +34,16 @@ class GamesController < ApplicationController
       end
     end
 
+    hacker_sum = @game.characters.average(:hacker)
+    commando_sum = @game.characters.average(:commando)
+    witch_sum = @game.characters.average(:witch)
+
+    @chart_info = [["commando", commando_sum], ["hacker", hacker_sum], ["witch", witch_sum]]
+    # x = Character.find_by_sql "SELECT * from characters where game_id = 1 limit 1"
+    # @chart_info = [["hacker", x[0].hacker], ["witch", x[0].witch], ["commando", x[0].commando]]
+
+    # @chart_info = [['banana', 5],['grape', 4]]
+
   end
 
   def edit

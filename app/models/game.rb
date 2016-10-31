@@ -12,14 +12,7 @@ class Game < ApplicationRecord
   end
 
   def char_attr_per_game
-    self.characters.each do |character|
-      @c = 0
-      @h = 0
-      @w = 0
-      character.commando += @c
-      character.hacker += @h
-      character.witch += @w
-    end
+    
   end
 
 
