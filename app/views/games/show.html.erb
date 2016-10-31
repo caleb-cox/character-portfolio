@@ -4,15 +4,24 @@
 
 <% if @can_edit%>
 <div>
-  <%= link_to "Edit This Game", edit_game_path(@game) %>
+  <h4>You are the Game Master</h4>
+  <%= link_to "Edit This Game", edit_game_path(@game) %> ||
+  <%= link_to "Delete", delete_game_path %>
 </div>
+<% elsif @user_character %>
+  <h4>Your Character in this game</h4>
+  <ul>
+    <li><%= link_to @user_character.name, character_path(@user_character)%></li>
+  </ul>
 <% else %>
-<%= link_to "Join Game & Create a Character", new_character_path %>
+  <%= link_to "Join Game & Create a Character", new_character_path %>
 <% end %>
 
 <h4>Characters in this game</h4>
 <ul>
-  <%= @game.characters.each do |character| %>
-  <li><%= link_to character.name character_path(character)%></li>
+  <% @game.characters.each do |character| %>
+  <li><%= link_to character.name, character_path(character)%></li>
   <% end %>
 </ul>
+
+<%= pie_chart @game.char_attr_per_game %>

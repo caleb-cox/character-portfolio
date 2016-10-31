@@ -6,9 +6,10 @@ Rails.application.routes.draw do
   resources :users, only: [:show, :edit, :update]
   get '/users' => 'users#destroy', as: 'delete'
   get '/signup' => 'users#new', as: 'signup'
-  post '/users' => 'users#create'
   get '/login' => 'sessions#new', as: 'login'
   post '/sessions' => 'sessions#create'
   get '/logout' => 'sessions#destroy', as: 'logout'
+  post '/games/:id/delete' => 'games#destroy', as: 'delete_game'
+  get '/games/:id/delete' => 'games#destroy'
 
 end

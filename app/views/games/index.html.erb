@@ -1,7 +1,18 @@
-ALL THE GAMEZZ!
+<h1>All Games</h1>
+<p>
+  Select a game below and join by creating a new character
+</p>
+
+<p>
+  OR Become a Game Master and <%= link_to " Create a new game", new_game_path %>
+</p>
 
 <ul>
-<%= @games.each do |game| %>
-  <li><%= link_to game.name game_path %></li> 
+<% @games.each do |game| %>
+  <li><%= link_to game.name, game_path(game) %> || <%= game.description %></li>
 <% end %>
 </ul>
+
+<h3>Number of characters per game</h3>
+
+<%= pie_chart @character_count %>

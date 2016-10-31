@@ -1,15 +1,31 @@
-Edit this Game
+<h2>Edit Game</h2>
 
-<% if flash[:alert] %>
-  <div>
-    <%= flash[:alert] %>
+<div class="row">
+  <div class="col-lg-2 col-lg-offset-1">
+    <% if @game.errors.any? %>
+      <% @game.errors.full_messages.each do |message| %>
+      <div class=  "errors">
+        <%= message %>
+      </div>
+      <% end %>
+    <% end %>
   </div>
-<% end %>
+</div>
 
-<%= form_for @game do |f| %>
-  <%= f.label :name %><%= f.text_field :name %><br>
+<br>
 
-  <%= f.label :description %><%= f.text_area :description %><br>
+<div class="row">
+  <div class="col-lg-6 col-lg-offset-1">
+    <%= form_for @game do |f| %>
+      <div class="form-group">
+        <%= f.label :name %><br><%= f.text_field :name %>
+      </div>
 
-  <%= f.submit %>
-<% end %>
+      <div class="form-group">
+        <%= f.label :description %><br><%= f.text_area :description %>
+      </div>
+
+      <%= f.submit %>
+    <% end %>
+  </div>
+</div>
