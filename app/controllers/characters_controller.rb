@@ -39,9 +39,8 @@ class CharactersController < ApplicationController
 
   def show
     @character = Character.find(params[:id])
-
-    if @character.talent == familiar
-      @familiar = .search(num)
+    if @character.talents.first.id == 8
+      @pokemon = Pokemon.new
     end
   end
 

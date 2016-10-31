@@ -41,6 +41,16 @@
           </p>
         <% end %>
       </p>
+
+      <% if  @pokemon %>
+        <p>
+          You got a pokemon! It's name is...
+        </p>
+        <p>
+          <%= @pokemon.name %>
+          <img src="<%= @pokemon.img %>" alt="" />
+        </p>
+      <% end %>
     </div>
 
   </div>
