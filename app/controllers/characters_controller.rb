@@ -1,6 +1,7 @@
 class CharactersController < ApplicationController
   def index
     @characters = Character.where(user_id: session[:user_id])
+    @attribute_sums = current_user.character_attributes
   end
 
   def new
