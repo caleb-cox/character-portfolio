@@ -14,7 +14,7 @@ class CharactersController < ApplicationController
   def create
     @character = Character.new(character_params)
     @character.user_id = session[:user_id]
-    @character.game = Game.all.first
+    @character.game = Game.find(session[:game_id])
 
     @character.skills.clear
     @character.skills << Skill.find(params[:character][:skill_1])
