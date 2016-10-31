@@ -1,7 +1,7 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   before_action :require_login
-  
+
 
 
   def current_user
@@ -15,7 +15,7 @@ class ApplicationController < ActionController::Base
   end
 
   def require_login
-    redirect_to login_path unless logged_in?
+    redirect_to root_path unless logged_in?
   end
 
 end
