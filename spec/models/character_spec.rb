@@ -4,6 +4,7 @@ RSpec.describe Character, type: :model do
 
   let (:character) {Character.new(name:"bobby", commando: 2, hacker: 2, witch: 6)}
 
+
   describe '#attributes_total' do
     it 'creates a total of commando, hacker and witch attribute points' do
       expect(character.attributes_total).to eq(character.commando + character.hacker + character.witch)
@@ -41,6 +42,14 @@ RSpec.describe Character, type: :model do
       not_unique.skills << Skill.find(1)
       not_unique.save
       expect(not_unique.errors[:skills]).to include("may not repeat")
+    end
+  end
+
+  describe '#zeroer' do
+    it 'Changes attribute value to 0 fixnum if value is nil' do
+      zero_hacker = character
+      zero_hacker.hacker = nil
+      expect(zeroer(zero_hacker.hacker)).to eq(0)
     end
   end
 

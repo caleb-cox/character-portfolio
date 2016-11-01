@@ -52,4 +52,8 @@ class Character < ApplicationRecord
     attr
   end
 
+  def add_one
+    1 + self.commando
+  end
+
 end
