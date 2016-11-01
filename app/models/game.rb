@@ -4,6 +4,7 @@ class Game < ApplicationRecord
 
   validates :name, presence: true, uniqueness: true
   validates :description, presence: true
+  validates :gm_id, presence: 
 
   def self.characters_per_game
     self.all.map do |game|
@@ -12,7 +13,7 @@ class Game < ApplicationRecord
   end
 
   def char_attr_per_game
-    
+
   end
 
 

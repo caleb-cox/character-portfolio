@@ -50,7 +50,7 @@ talents.each { |talent| Talent.create(name: talent[0], description: talent[1])}
 end
 
 10.times do
-  Game.create(name: Faker::Book.title, description: Faker::Hipster.sentence(5), gm_id: rand(1..User.count))
+  Game.create(name: Faker::StarWars.planet, description: Faker::Hipster.sentence(5), gm_id: rand(1..User.count))
 end
 
 def new_player_character(game_id, gm_id)
