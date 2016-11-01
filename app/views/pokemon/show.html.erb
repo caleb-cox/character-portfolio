@@ -1,0 +1,19 @@
+<% if @caught %>
+   <h2>You caught'em! You're a pokemaster!</h2>
+   <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/<%= @captured.last%>.png"/>
+  <% else %>
+    <h2>
+      The Pokemon escaped! And it ran away! Aww shucks...
+    </h2>
+<% end %>
+
+<% if @captured.count > 0 %>
+  <h3>Your Poke-friends! </h3>
+
+  <% @captured.each do |id| %>
+    <p>
+      <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/<%= id %>.png"/>
+    </p>
+  <% end %>
+  
+<% end %>

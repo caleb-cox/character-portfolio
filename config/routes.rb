@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   root to: 'greetings#welcome'
-  
+
   resources :characters
 
   resources :games
@@ -13,6 +13,9 @@ Rails.application.routes.draw do
   get '/login' => 'sessions#new', as: 'login'
   post '/sessions' => 'sessions#create'
   get '/logout' => 'sessions#destroy', as: 'logout'
+
+  get '/pokemon' => 'pokemon#new', as: 'pokemon'
+  get '/pokemon/show' => 'pokemon#show'
 
 
 end

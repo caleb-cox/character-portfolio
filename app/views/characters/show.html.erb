@@ -3,7 +3,7 @@
     <div class="col-lg-12">
       <h2>
         <%= @character.name %>
-        <%= link_to "Enter Game", game_path(@character.game), class: 'btn btn-lg btn-warning spaceTop' %>
+        <%= link_to "Enter #{@character.game.name}", game_path(@character.game), class: 'btn btn-lg btn-warning spaceTop' %>
       </h2>
     </div>
   </div>
@@ -70,4 +70,3 @@
 
   </div>
 </div>
-

@@ -17,11 +17,17 @@
 
   <body>
     <div class="container-fluid">
+
       <div class="row  header-img">
         <div class="col-lg-6">
           <h1>Character Portfolio</h1>
         </div>
+
+        <div class="col-lg-1 col-lg-offset-5 align-right">
+          <a href="/pokemon"><img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/great-ball.png" alt="easter egg" /></a>
+        </div>
       </div>
+
       <div class="row  header-img">
         <ul class="nav nav-tabs">
           <% if session[:user_id] %>
@@ -33,10 +39,11 @@
             <li><%= link_to "Login", login_path  %></li>
             <li><%= link_to "Sign up", signup_path  %></li>
           <% end %>
-
         </ul>
       </div>
+
       <%= yield %>
-    </div>
+
+    </div> <!--end .container-fluid-->
   </body>
 </html>

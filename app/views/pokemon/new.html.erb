@@ -1,0 +1,10 @@
+  <p>
+    A wild pokemon appeared!
+  </p>
+  <p>
+    <%= @pokemon.name %>
+    <img src="<%= @pokemon.img %>" alt="" />
+  </p>
+
+<%= link_to "Throw a Poke-ball!", "pokemon/show", class:"btn btn-success" %><br>
+<%= link_to "Run Away!", "/", class:"btn btn-danger" %>
