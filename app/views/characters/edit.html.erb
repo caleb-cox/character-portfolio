@@ -1,9 +1,13 @@
 <h2>Edit character</h2>
 
 <% if @character.errors.any? %>
-  <% @character.errors.full_messages.each do |message| %>
-    <%= message %><br>
-  <% end %>
+<div class="row">
+  <div class="col-lg-3 bg-warning text-danger">
+    <% @character.errors.full_messages.each do |message| %>
+      <%= message %><br>
+    <% end %>
+  </div>
+</div>
   <br>
 <% end %>
 
