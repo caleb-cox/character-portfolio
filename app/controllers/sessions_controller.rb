@@ -14,8 +14,9 @@ class SessionsController < ApplicationController
       render :new
     elsif @user && @user.authenticate(params[:user][:password])
       session[:user_id] = @user.id
-      flash[:notice] = nil
-      flash[:alert] = nil
+      session[:poke_id] = []
+      # flash[:notice] = nil
+      # flash[:alert] = nil
       redirect_to user_path(@user)
     else
       flash[:alert] = "There was an error logging you in. Please make sure your username and password are correct or "

@@ -14,6 +14,6 @@ class PokemonController < ApplicationController
       @captured.pop
       @caught = false
     end
-    
+
   end
 end
