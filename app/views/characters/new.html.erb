@@ -16,6 +16,7 @@
   <%= label_tag 'character[name]', 'Name:' %>
     <%= text_field_tag 'character[name]', @character.name %><br>
   <h3>Attributes:</h3>
+  <h4>Each must be between 0-6, total cannot exceed 10!</h4>
   <%= label_tag 'character[commando]', 'Commando:' %>
     <%= text_field_tag 'character[commando]', @character.commando %><br>
   <%= label_tag 'character[hacker]', 'Hacker:' %>
