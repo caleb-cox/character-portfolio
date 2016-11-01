@@ -5,6 +5,10 @@ class Character < ApplicationRecord
   has_and_belongs_to_many :talents
 
   validates :name, presence: true
+  validates :commando, presence: true
+  validates :hacker, presence: true
+  validates :witch, presence: true
+
   validates :commando, inclusion: {in: 0..6, message: "is not within 0 to 6"}
   validates :hacker, inclusion: {in: 0..6, message: "is not within 0 to 6"}
   validates :witch, inclusion: {in: 0..6, message: "is not within 0 to 6"}
@@ -23,8 +27,12 @@ class Character < ApplicationRecord
     2 * self.witch
   end
 
+
   def attributes_total
-    self.commando + self.hacker + self.witch 
+    # if self.commando == nil
+    #   self.commando = 0
+    # end
+    zeroer(self.commando) + zeroer(self.hacker) + zeroer(self.witch)
   end
 
   private
@@ -34,4 +42,14 @@ class Character < ApplicationRecord
       self.errors.add(:skills, "may not repeat")
     end
   end
+
+  def zeroer(attr)
+    if attr == nil
+      attr = 0
+    else
+      attr = attr
+    end
+    attr
+  end
+
 end

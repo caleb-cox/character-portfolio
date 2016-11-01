@@ -57,10 +57,12 @@ class CharactersController < ApplicationController
   def update
     @character = Character.find(params[:id])
 
-    @character.name = params[:character][:name]
-    @character.commando = params[:character][:commando]
-    @character.hacker = params[:character][:hacker]
-    @character.witch = params[:character][:witch]
+    #if @character.update(character_params)
+
+     @character.name = params[:character][:name]
+     @character.commando = params[:character][:commando]
+     @character.hacker = params[:character][:hacker]
+     @character.witch = params[:character][:witch]
 
     x = SkillsAssigner.new(@character, params[:character][:skills])
     x.assign
@@ -68,13 +70,19 @@ class CharactersController < ApplicationController
     @character.talents.clear
     @character.talents << Talent.find(params[:character][:talent])
 
-    if @character.save
-      redirect_to @character
-    else
-      @skills = Skill.all
-      @talents = Talent.all
-      render :edit
-    end
+    #else
+    #  @skills = Skill.all
+    #  @talents = Talent.all
+    #  render :edit
+    #end
+
+     if @character.save
+       redirect_to @character
+     else
+       @skills = Skill.all
+       @talents = Talent.all
+       render :edit
+     end
   end
 
   def destroy

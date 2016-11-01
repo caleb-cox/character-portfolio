@@ -1,12 +1,17 @@
-<h1>Welcome to The Shire <%= @user.name %>!</h1>
+<div class="row">
+  <div class="col-lg-6">
+    <h1>Welcome to The Shire <%= @user.name %>!</h1>
 
+    <% if !@games.empty? %>
+      <h2>Choose An Adventure</h2>
+      <% @games.each do |game| %>
+        <h3><p><%= link_to game.name, game_path(game) %><br></p></h3>
+        <%= game.description %><br>
+      <% end %>
+    <% end %>
 
-<h2>Choose An Adventure</h2>
-<% @games.each do |game| %>
-  <h3><p><%= link_to game.name, game_path(game) %><br></p></h3>
-  <%= game.description %><br>
-<% end %>
+    <h2><%= link_to "Make An Adventure", new_game_path %></h2>
 
-<h2><%= link_to "Make An Adventure", new_game_path %></h2>
-
-<p><%= link_to "Edit profile", edit_user_path(@user.id) %> | <%= link_to "Logout", logout_path %></p>
+    <p><%= link_to "Edit profile", edit_user_path(@user.id) %> | <%= link_to "Logout", logout_path %></p>
+  </div>
+</div>

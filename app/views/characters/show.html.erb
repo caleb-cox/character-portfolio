@@ -3,9 +3,11 @@
     <div class="col-lg-12">
       <h2>
         <%= @character.name %>
+        <%= link_to "Enter Game", game_path(@character.game), class: 'btn btn-lg btn-warning spaceTop' %>
       </h2>
     </div>
   </div>
+
   <div class="row">
     <div class="col-lg-2">
       <h4>Attributes:</h4>
@@ -68,3 +70,4 @@
 
   </div>
 </div>
+
